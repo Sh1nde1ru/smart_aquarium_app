@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  dynamic blockColor = Colors.grey.shade800;
   dynamic temperature;
   dynamic outputTemp;
   dynamic pH;
@@ -90,12 +91,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-            Colors.deepPurple.shade400,
-            Colors.deepPurple.shade300,
-            Colors.deepPurple.shade200
-          ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+          color: Colors.grey.shade200,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -107,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                   MyContainer(
                     height: 150,
                     width: 150,
-                    color: Colors.deepPurple.shade300,
+                    color: blockColor,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                   MyContainer(
                       height: 150,
                       width: 150,
-                      color: Colors.deepPurple.shade300,
+                      color: blockColor,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -157,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                   MyContainer(
                     height: 150,
                     width: 150,
-                    color: Colors.deepPurple.shade300,
+                    color: blockColor,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -255,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                   MyContainer(
                     height: 150,
                     width: 150,
-                    color: Colors.deepPurple.shade300,
+                    color: blockColor,
                     child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -359,24 +355,28 @@ class _HomePageState extends State<HomePage> {
               SleekCircularSlider(
                 initialValue: initValue,
                 appearance: CircularSliderAppearance(
-                  size: 300,
-                  startAngle: 180,
-                  angleRange: 180,
-                  customWidths: CustomSliderWidths(
-                    trackWidth: 50,
-                    shadowWidth: 0,
-                    progressBarWidth: 50,
-                  ),
-                  customColors: CustomSliderColors(
-                      gradientStartAngle: 180,
-                      gradientEndAngle: 360,
-                      progressBarColors: [
-                        Colors.blue.shade900,
-                        Colors.deepOrange,
-                        Colors.yellow
-                      ],
-                      trackColor: Colors.grey.shade500),
-                ),
+                    size: 300,
+                    startAngle: 180,
+                    angleRange: 180,
+                    customWidths: CustomSliderWidths(
+                      trackWidth: 50,
+                      shadowWidth: 0,
+                      progressBarWidth: 50,
+                    ),
+                    customColors: CustomSliderColors(
+                        gradientStartAngle: 180,
+                        gradientEndAngle: 360,
+                        progressBarColors: [
+                          Colors.blue.shade900,
+                          Colors.deepOrange,
+                          Colors.yellow
+                        ],
+                        trackColor: Colors.grey.shade200),
+                    infoProperties: InfoProperties(
+                        mainLabelStyle: const TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 65),
+                        bottomLabelStyle:
+                            const TextStyle(fontWeight: FontWeight.bold))),
                 min: 0,
                 max: 100,
                 onChange: (double value) {
@@ -405,7 +405,7 @@ class _HomePageState extends State<HomePage> {
 
   void storeTimeOnHours(int value) async {
     DatabaseReference ref = FirebaseDatabase.instance.ref("timeOnHour");
-    print('Saving value to local storage time on hours');
+    //print('Saving value to local storage time on hours');
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -416,7 +416,7 @@ class _HomePageState extends State<HomePage> {
 
   void storeTimeOffHours(int value) async {
     DatabaseReference ref = FirebaseDatabase.instance.ref("timeOffHour");
-    print('Saving value to local storage time off hours');
+    //print('Saving value to local storage time off hours');
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -426,8 +426,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void storeTimeOnMins(int value) async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref("timeOnMins");
-    print('Saving value to local storage time on mins');
+    DatabaseReference ref = FirebaseDatabase.instance.ref("timeOnMin");
+    //print('Saving value to local storage time on mins');
 
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -437,8 +437,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   void storeTimeOffMins(int value) async {
-    DatabaseReference ref = FirebaseDatabase.instance.ref("timeOffMins");
-    print('Saving value to local storage time off mins');
+    DatabaseReference ref = FirebaseDatabase.instance.ref("timeOffMin");
+    //print('Saving value to local storage time off mins');
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       ref.set(value);
