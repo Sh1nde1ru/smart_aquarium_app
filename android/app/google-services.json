@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "119192055842",
+    "firebase_url": "https://smart-aqarium-database-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "smart-aqarium-database",
+    "storage_bucket": "smart-aqarium-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119192055842:android:3c2b03d240119547cf5a7b",
+        "android_client_info": {
+          "package_name": "com.shinde.sap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6de7CmUt6dGj3o6usETtIqEaZym2e-QQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119192055842:android:f42915e6c4be6babcf5a7b",
+        "android_client_info": {
+          "package_name": "com.smart_aqarium_app.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6de7CmUt6dGj3o6usETtIqEaZym2e-QQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
