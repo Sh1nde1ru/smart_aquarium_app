@@ -6,8 +6,8 @@ import 'package:smart_aquarium_app/pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive,
-      overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.bottom]);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
@@ -24,6 +24,8 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Color.fromRGBO(238, 238, 238, 1),
+        extendBody: true,
         extendBodyBehindAppBar: true,
         body: HomePage(),
       ),
