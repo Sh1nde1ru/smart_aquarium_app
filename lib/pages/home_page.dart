@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   final timeOffMins = FixedExtentScrollController();
 
   bool lightToggle = false;
+  bool sumerTime = false;
 
   Timer? saveEvent1;
   Timer? saveEvent2;
@@ -474,7 +475,11 @@ class _HomePageState extends State<HomePage> {
     DatabaseReference ref = FirebaseDatabase.instance.ref("lightTrigger");
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      ref.set(lightToggle);
+      if (lightToggle == true) {
+        ref.set("true");
+      } else {
+        ref.set("false");
+      }
       prefs.setBool("lightToggle", lightToggle);
     });
   }
